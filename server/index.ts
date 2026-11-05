@@ -1,4 +1,4 @@
-import type { ServerPlugin } from '@hodiapp/plugin-sdk/server'
+import type { ServerPlugin } from '@hodi-app/plugin-sdk/server'
 
 // The server part: one table of its own and one route. Hodi serves the route at /api/plugins/my-plugin/hello, to
 // the profiles the plugin is for, while it is on.

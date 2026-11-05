@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Instructions for AI coding agents working on this Hodi plugin. Read `README.md` first, then the
-[`@hodiapp/plugin-sdk` README](https://www.npmjs.com/package/@hodiapp/plugin-sdk) (in `node_modules/@hodiapp/plugin-sdk/` once
+[`@hodi-app/plugin-sdk` README](https://www.npmjs.com/package/@hodi-app/plugin-sdk) (in `node_modules/@hodi-app/plugin-sdk/` once
 installed).
 
 - TypeScript strict, ES modules. Prettier decides formatting (no semicolons, single quotes, 120 columns): run
