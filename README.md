@@ -1,6 +1,6 @@
 # Hodi plugin template
 
-A starting point for a [Hodi](https://github.com/Anthodpnt/hodi) plugin. It is a complete small plugin: two settings
+A starting point for a [Hodi](https://github.com/leclaudeur/hodi) plugin. It is a complete small plugin: two settings
 that Hodi draws, a server route with its own table, and a card under its options in Réglages › Plugins, in French and
 English.
 
@@ -56,3 +56,8 @@ npm run build
 
 GitHub Actions runs them on every push and pull request, and attaches the `.hodi-plugin` file to the run. A tag such as
 `v0.1.0` also publishes it as a GitHub release.
+
+## License
+
+This template is under the [MIT license](LICENSE). Your plugin is yours: replace `LICENSE` and the `license` field
+in `package.json` with the license you choose.
