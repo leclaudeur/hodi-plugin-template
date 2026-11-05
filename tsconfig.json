@@ -11,7 +11,7 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     // hodi:sdk, Hodi's components and hooks, typed by the SDK; Node and Express for the server part.
-    "types": ["node", "@hodi/plugin-sdk/hodi-sdk"]
+    "types": ["node", "@hodiapp/plugin-sdk/hodi-sdk"]
   },
   "include": ["server", "web"]
 }

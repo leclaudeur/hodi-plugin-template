@@ -30,7 +30,7 @@ assets/            optional: pictures and other files its web part asks for
 ```
 
 The full guide, with every field and what a plugin may use, is the
-[`@hodi/plugin-sdk` README](https://www.npmjs.com/package/@hodi/plugin-sdk).
+[`@hodiapp/plugin-sdk` README](https://www.npmjs.com/package/@hodiapp/plugin-sdk).
 
 ## Rules
 
