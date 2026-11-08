@@ -8,7 +8,7 @@ English.
 
 1. **Use this template** (the green button on GitHub), then clone your new repository.
 2. In `plugin.json`, choose your plugin's `id` (lowercase letters, digits and dashes), `name` and `description`. Rename
-   the table in `server/index.ts` (`plugin_<id>_…`, dashes as underscores) and the class in `web/plugin.css` to match.
+   the class in `web/plugin.css` to match (`.<id>-…`).
 3. Install and build:
 
 ```bash
@@ -21,8 +21,8 @@ npm run build        # dist/<id>-<version>.hodi-plugin
 ## The folder
 
 ```text
-plugin.json        what it is: id, name, version, api, who it is for, its settings
-server/index.ts    its server part: its own migrations and routes, served at /api/plugins/<id>/
+plugin.json        what it is: id, name, version, api, who it is for, what it may reach, its settings
+server/index.ts    its server part, in Hodi's sandbox: its own database, migrations and routes at /api/plugins/<id>/
 web/index.tsx      its web part: drawn with Hodi's components from 'hodi:sdk'
 web/plugin.css     its styles, prefixed with its id, coloured with Hodi's CSS variables
 locales/           its texts, one file per language (fr is the fallback)
@@ -38,7 +38,9 @@ A plugin runs inside Hodi, with Hodi's rights, so it keeps Hodi's rules:
 
 - No AI call without a click on a purple button.
 - Every text in `locales/`; French says « tu ».
-- Outgoing requests through `ctx.fetchText`; data in the plugin's own tables (`ctx.db`) and folder (`ctx.dataDir`).
+- The server part runs in a sandbox, with no Node module: its data in its own database (`ctx.db`), pages of the sites
+  listed in `permissions.network` through `ctx.fetchText`, Hodi's articles through `ctx.articles` with
+  `permissions.articles`. Ask only for what it needs: Hodi shows these permissions before installing.
 - A migration that is released is never edited or reordered: add a new one.
 
 ## Unsigned, and that is fine
