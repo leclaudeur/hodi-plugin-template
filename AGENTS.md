@@ -7,10 +7,10 @@ installed).
 - TypeScript strict, ES modules. Prettier decides formatting (no semicolons, single quotes, 120 columns): run
   `npm run format`.
 - The plugin runs inside Hodi: never call an AI provider without a click, never import Hodi's own modules (use the
-  context the server part gets and `hodi:sdk` in the web part), outgoing requests only through `ctx.fetchText`.
+  context the server part gets and `hodi:sdk` in the web part), outgoing requests only through `ctx.fetchText` to the hosts in `permissions.network`; no Node module on the server part (it runs in a sandbox).
 - Every text goes in `locales/fr.json` (the reference; French says « tu ») and every key also in `locales/en.json`.
   Code, comments, identifiers and commits are in English.
 - Use Hodi's components from `hodi:sdk` and its CSS variables; prefix class names with the plugin's id.
-- Migrations are appended, never edited or reordered once released. Tables are named `plugin_<id>_…`.
+- Migrations are appended, never edited or reordered once released. Its tables live in its own database, named as it likes.
 - Before a pull request: `npm run typecheck`, `npm run format:check` and `npm run build` must pass.
 - Never put a private key in the repository.
