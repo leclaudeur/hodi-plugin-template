@@ -1,8 +1,8 @@
 # Hodi plugin template
 
 A starting point for a [Hodi](https://github.com/leclaudeur/hodi) plugin. It is a complete small plugin: two settings
-that Hodi draws, a server route with its own table, and a card under its options in Réglages › Plugins, in French and
-English.
+that Hodi draws, a server route with its own table, and a card under its options in Serveur › Plugins, in French and
+English, and a first test.
 
 ## Start
 
@@ -16,7 +16,7 @@ npm install
 npm run build        # dist/<id>-<version>.hodi-plugin
 ```
 
-4. In Hodi, as the admin: Réglages › Plugins › Ajouter un plugin, and choose that file. Hodi restarts with it.
+4. In Hodi, as the server's admin: Serveur › Plugins › Ajouter un plugin, and choose that file. Hodi restarts with it.
 
 ## The folder
 
@@ -26,6 +26,7 @@ server/index.ts    its server part, in Hodi's sandbox: its own database, migrati
 web/index.tsx      its web part: drawn with Hodi's components from 'hodi:sdk'
 web/plugin.css     its styles, prefixed with its id, coloured with Hodi's CSS variables
 locales/           its texts, one file per language (fr is the fallback)
+test/              its tests: the server part run as Hodi runs it (@hodi-app/plugin-sdk/testing)
 assets/            optional: pictures and other files its web part asks for
 ```
 
@@ -53,8 +54,13 @@ for Hodi's official plugins, signed by its maintainer.
 ```bash
 npm run typecheck
 npm run format:check
+npm test
 npm run build
 ```
+
+`npm test` runs `test/*.test.ts` with Node's test runner. `testPlugin('.')` builds the plugin, loads its server part in
+Hodi's own sandbox around a small Hodi in memory, and lets a test ask its routes as a person of the household. Nothing
+leaves the machine.
 
 GitHub Actions runs them on every push and pull request, and attaches the `.hodi-plugin` file to the run. A tag such as
 `v0.1.0` also publishes it as a GitHub release.
