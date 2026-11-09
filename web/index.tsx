@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Button, SettingRow, definePlugin, showError, usePluginApi, usePluginTranslation } from 'hodi:sdk'
 import './plugin.css'
 
-// The web part: a card under the plugin's options in Réglages, drawn with Hodi's own components.
+// The web part: a card under the plugin's options in Serveur › Plugins, drawn with Hodi's own components. A page for
+// every profile it is meant for goes in `page`, its own entry of Réglages (see the SDK's README).
 const HelloCard = () => {
   const { t } = usePluginTranslation()
   const api = usePluginApi()

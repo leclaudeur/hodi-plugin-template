@@ -12,5 +12,6 @@ installed).
   Code, comments, identifiers and commits are in English.
 - Use Hodi's components from `hodi:sdk` and its CSS variables; prefix class names with the plugin's id.
 - Migrations are appended, never edited or reordered once released. Its tables live in its own database, named as it likes.
-- Before a pull request: `npm run typecheck`, `npm run format:check` and `npm run build` must pass.
+- Server changes come with a test in `test/` (`testPlugin` from `@hodi-app/plugin-sdk/testing`).
+- Before a pull request: `npm run typecheck`, `npm run format:check`, `npm test` and `npm run build` must pass.
 - Never put a private key in the repository.
