@@ -18,10 +18,10 @@ Settings, a route with its own database, a card in Hodi and a first test. _All s
 
 A Hodi **plugin** adds a feature to Hodi _without touching its code_. This template already has:
 
-- **the build**, which makes the `.hodi-plugin` file Hodi installs
-- **a live loop**: each save reinstalls the plugin on your test Hodi
-- **a test kit** that runs your routes in Hodi's sandbox, in memory
-- **CI**, which checks every push and releases from a tag
+- 🧱 **the build**, which makes the `.hodi-plugin` file Hodi installs
+- 🔁 **a live loop**: each save reinstalls the plugin on your test Hodi
+- 🧪 **a test kit** that runs your routes in Hodi's sandbox, in memory
+- ✅ **CI**, which checks every push and releases from a tag
 
 ## Before you start
 
@@ -79,18 +79,17 @@ A plugin runs **inside Hodi, with Hodi's rights**, so it follows Hodi's rules:
 
 - **No AI call without a click** on a purple button.
 - **Every text goes in `locales/`.** In French, Hodi says « tu ».
-- **The server part runs in a sandbox**, without Node modules. It reaches the web only through `ctx.fetchText`, to
-  the sites in `permissions.network`.
+- **The server part runs in a sandbox**: no Node modules, and the web only through `ctx.fetchText`.
 - **Ask only for the permissions you need.** Hodi shows them before installing.
 - **Never edit a released migration.** Add a new one.
 
 ## Signed or not
 
-A package built here is **unsigned**. Outside developer mode, Hodi installs it as _Unverified code_ and **never shows
-its web part**: no card, no page. Only Hodi's official plugins are signed (_Verified_).
+A package built here is **unsigned**. Installed from its file, Hodi labels it _Unverified code_ and **never shows its
+web part**: no card, no page. In developer mode, everything shows while you work on it.
 
-Unsigned plugins can't use `accounts`, `households`, `signIn`, `mail` or `notify` outside developer mode, and never
-the AI.
+Only Hodi's official plugins are signed (_Verified_). Outside developer mode, an unsigned plugin can't use `accounts`,
+`households`, `signIn`, `mail` or `notify`, and it never gets the AI.
 
 ## Checks
 
