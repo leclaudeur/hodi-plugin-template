@@ -16,5 +16,7 @@ installed).
 - Use Hodi's components from `hodi:sdk` and its CSS variables; prefix class names with the plugin's id.
 - Migrations are appended, never edited or reordered once released. Its tables live in its own database, named as it likes.
 - Server changes come with a test in `test/` (`testPlugin` from `@hodi-app/plugin-sdk/testing`).
+- Add a line under « Unreleased » in `CHANGELOG.md` for anything a user would notice. Never raise `version` in a
+  feature pull request: a small release pull request does it, right before the tag.
 - Before a pull request: `npm run typecheck`, `npm run lint`, `npm run format:check`, `npm test` and `npm run build` must pass.
 - Never put a private key in the repository.

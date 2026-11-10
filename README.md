@@ -103,7 +103,8 @@ npm test
 npm run build      # → dist/my-plugin-0.1.0.hodi-plugin
 ```
 
-A tag such as `v0.1.0` publishes the `.hodi-plugin` file as a GitHub release.
+A tag such as `v0.1.0` publishes the `.hodi-plugin` file as a GitHub release. Before it, raise `version` in
+`plugin.json` and `package.json` and move the lines under « Unreleased » in [CHANGELOG.md](CHANGELOG.md) under it.
 
 ## License
 
