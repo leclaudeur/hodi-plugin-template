@@ -1,72 +1,110 @@
-# Hodi plugin template
+<div align="center">
 
-A starting point for a [Hodi](https://github.com/leclaudeur/hodi) plugin. It is a complete small plugin: two settings
-that Hodi draws, a server route with its own table, and a card under its options in Serveur › Plugins, in French and
-English, and a first test.
+# 🧩 Hodi plugin template
 
-## Start
+**A small, working plugin to start your own [Hodi](https://github.com/leclaudeur/hodi) plugin from.**<br>
+Settings, a route with its own database, a card in Hodi and a first test. _All set up, all passing._
 
-1. **Use this template** (the green button on GitHub), then clone your new repository.
-2. In `plugin.json`, choose your plugin's `id` (lowercase letters, digits and dashes), `name` and `description`. Rename
-   the class in `web/plugin.css` to match (`.<id>-…`).
-3. Install and build:
+[![CI](https://github.com/leclaudeur/hodi-plugin-template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/leclaudeur/hodi-plugin-template/actions/workflows/ci.yml)
+[![Plugin SDK](https://img.shields.io/npm/v/@hodi-app/plugin-sdk?label=%40hodi-app%2Fplugin-sdk)](https://www.npmjs.com/package/@hodi-app/plugin-sdk)
+[![Node.js 24 or later](https://img.shields.io/badge/node-%E2%89%A524-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+[**Quick start**](#quick-start) · [**What's inside**](#whats-inside) · [**Rules**](#rules) · [**Checks**](#checks)
+
+</div>
+
+## Why start here
+
+A Hodi **plugin** adds a feature to Hodi _without touching its code_. This template already has:
+
+- 🧱 **the build**, which makes the `.hodi-plugin` file Hodi installs
+- 🔁 **a live loop**: each save reinstalls the plugin on your test Hodi
+- 🧪 **a test kit** that runs your routes in Hodi's sandbox, in memory
+- ✅ **CI**, which checks every push and releases from a tag
+
+## Before you start
+
+- **Node.js 24** or later
+- **A test Hodi** where you are the server's admin. Never the one your household uses.
+  [Install Hodi](https://github.com/leclaudeur/hodi#install).
+
+## Quick start
+
+**1.** Click **Use this template**, then clone your new repository.
+
+**2.** Install and test:
 
 ```bash
 npm install
-npm run build        # dist/<id>-<version>.hodi-plugin
+npm test        # → 3 tests pass
 ```
 
-4. In Hodi, as the server's admin: Serveur › Plugins › Ajouter un plugin, and choose that file. Hodi restarts with it.
+**3.** In your test Hodi, open _Server › Plugins_ and turn on **Developer mode**. Hodi shows a command, once.
 
-## The folder
+**4.** Run that command in the plugin's folder:
+
+```bash
+npx hodi-plugin dev --server http://localhost:3000 --code <code>
+# → ✓ my-plugin 0.1.0 in Hodi (2.6 s): reload the page
+```
+
+**5.** Reload _Server › Plugins_, then **Manage** the new plugin. Its **Say hello** card answers `Bonjour`.
+
+Each save now reinstalls the plugin: reload the page to see your change.
+
+## Make it yours
+
+1. In `plugin.json`, set your `id` (lowercase letters, digits, dashes), `name` and `description`.
+2. Rename the `my-plugin-` CSS class in `web/plugin.css` and `web/index.tsx`.
+3. Write your texts in `locales/`.
+
+## What's inside
 
 ```text
-plugin.json        what it is: id, name, version, api, who it is for, what it may reach, its settings
-server/index.ts    its server part, in Hodi's sandbox: its own database, migrations and routes at /api/plugins/<id>/
-web/index.tsx      its web part: drawn with Hodi's components from 'hodi:sdk'
-web/plugin.css     its styles, prefixed with its id, coloured with Hodi's CSS variables
-locales/           its texts, one file per language (fr is the fallback)
-test/              its tests: the server part run as Hodi runs it (@hodi-app/plugin-sdk/testing)
-assets/            optional: pictures and other files its web part asks for
+plugin.json        id, name, version, audience, permissions, settings
+server/index.ts    server part: routes, migrations, its own database
+web/index.tsx      web part, built with Hodi's components from 'hodi:sdk'
+web/plugin.css     styles, prefixed with the plugin's id
+locales/           texts, one file per language
+test/              tests, with @hodi-app/plugin-sdk/testing
 ```
 
-The full guide, with every field and what a plugin may use, is the
-[`@hodi-app/plugin-sdk` README](https://www.npmjs.com/package/@hodi-app/plugin-sdk).
+The [**`@hodi-app/plugin-sdk` guide**](https://www.npmjs.com/package/@hodi-app/plugin-sdk) explains every field and
+everything a plugin may use.
 
 ## Rules
 
-A plugin runs inside Hodi, with Hodi's rights, so it keeps Hodi's rules:
+A plugin runs **inside Hodi, with Hodi's rights**, so it follows Hodi's rules:
 
-- No AI call without a click on a purple button.
-- Every text in `locales/`; French says « tu ».
-- The server part runs in a sandbox, with no Node module: its data in its own database (`ctx.db`), pages of the sites
-  listed in `permissions.network` through `ctx.fetchText`, Hodi's articles through `ctx.articles` with
-  `permissions.articles`. Ask only for what it needs: Hodi shows these permissions before installing.
-- A migration that is released is never edited or reordered: add a new one.
+- **No AI call without a click** on a purple button.
+- **Every text goes in `locales/`.** In French, Hodi says « tu ».
+- **The server part runs in a sandbox**: no Node modules, and the web only through `ctx.fetchText`.
+- **Ask only for the permissions you need.** Hodi shows them before installing.
+- **Never edit a released migration.** Add a new one.
 
-## Unsigned, and that is fine
+## Signed or not
 
-A package built here is unsigned: Hodi installs it as "Code non vérifié", after a second question. "Vérifié" is kept
-for Hodi's official plugins, signed by its maintainer.
+A package built here is **unsigned**. Installed from its file, Hodi labels it _Unverified code_ and **never shows its
+web part**: no card, no page. In developer mode, everything shows while you work on it.
+
+Only Hodi's official plugins are signed (_Verified_). Outside developer mode, an unsigned plugin can't use `accounts`,
+`households`, `signIn`, `mail` or `notify`, and it never gets the AI.
 
 ## Checks
+
+GitHub Actions runs these on every push. Run them before a pull request:
 
 ```bash
 npm run typecheck
 npm run lint
 npm run format:check
 npm test
-npm run build
+npm run build      # → dist/my-plugin-0.1.0.hodi-plugin
 ```
 
-`npm test` runs `test/*.test.ts` with Node's test runner. `testPlugin('.')` builds the plugin, loads its server part in
-Hodi's own sandbox around a small Hodi in memory, and lets a test ask its routes as a person of the household. Nothing
-leaves the machine.
-
-GitHub Actions runs them on every push and pull request, and attaches the `.hodi-plugin` file to the run. A tag such as
-`v0.1.0` also publishes it as a GitHub release.
+A tag such as `v0.1.0` publishes the `.hodi-plugin` file as a GitHub release.
 
 ## License
 
-This template is under the [MIT license](LICENSE). Your plugin is yours: replace `LICENSE` and the `license` field
-in `package.json` with the license you choose.
+[MIT](LICENSE). Your plugin is yours: change `LICENSE` and the `license` field in `package.json`.
