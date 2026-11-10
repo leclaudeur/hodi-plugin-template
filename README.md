@@ -107,4 +107,7 @@ A tag such as `v0.1.0` publishes the `.hodi-plugin` file as a GitHub release.
 
 ## License
 
-[MIT](LICENSE). Your plugin is yours: change `LICENSE` and the `license` field in `package.json`.
+Copyright © 2026 Le Claudeur.
+
+This template is free software under the [MIT license](LICENSE): you may **use, change and share** it freely.
+Your plugin is yours: put your own license in `LICENSE` and in `package.json`.
