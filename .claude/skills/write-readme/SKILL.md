@@ -33,6 +33,15 @@ Learned from the maintainer's reviews. These win over the general advice above.
   label (`shared/locales/en.json` in hodi-next), such as _Server › Plugins_ and **Developer mode**, never the French
   one.
 - **Balanced paragraphs.** Avoid a lone word on the last line of a paragraph: reword or lengthen it slightly.
+- **One line per feature.** Each item of a feature list fits on one line: name it, then say it in a few words.
+- **Callouts for warnings and side notes.** Use GitHub's alerts, as Hodi's README does: `> [!NOTE]` for context,
+  `> [!TIP]` for a helpful extra, `> [!IMPORTANT]` for what must not be missed, `> [!WARNING]` for a risk.
+- **Plain sentences first.** Don't crowd a sentence with inline code or file paths: say it in words, and keep paths
+  for the code blocks.
+- **The same License section everywhere**, in the form of Hodi's README: a copyright line, then one sentence naming
+  the license with a link to `LICENSE`.
+- **Le Claudeur is the copyright holder.** Never write the maintainer's real name in a repository: README, `LICENSE`,
+  `package.json` or anywhere else.
 
 ## Modes
 
