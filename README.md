@@ -57,7 +57,7 @@ Each save now reinstalls the plugin: reload the page to see your change.
 
 1. In `plugin.json`, set your `id` (lowercase letters, digits, dashes), `name` and `description`.
 2. Rename the `my-plugin-` CSS class in `web/plugin.css` and `web/index.tsx`.
-3. Write your texts in `locales/`.
+3. Write your texts in `locales/`, with the plugin's name and description in each language under `manifest`.
 
 ## What's inside
 
