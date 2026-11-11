@@ -1,4 +1,8 @@
 {
+  "manifest": {
+    "name": "Mon plugin",
+    "description": "Un plugin Hodi : un réglage, une route et sa propre carte."
+  },
   "settings": {
     "greeting": "Message",
     "greetingHint": "Ce que le plugin répond",
