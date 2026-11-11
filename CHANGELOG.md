@@ -16,7 +16,7 @@ Fixed (bugs), Security (what was unsafe).
 
 ### Added
 
-- The plugin's name and description in English, for people who use Hodi in English.
+- The plugin's name and description in each of its languages, so people who use Hodi in English see them in English.
 
 ### Changed
 
