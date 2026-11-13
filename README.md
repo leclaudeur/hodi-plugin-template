@@ -9,8 +9,9 @@ Settings, a route with its own database, a card in Hodi and a first test. _All s
 [![Plugin SDK](https://img.shields.io/npm/v/@hodi-app/plugin-sdk?label=%40hodi-app%2Fplugin-sdk)](https://www.npmjs.com/package/@hodi-app/plugin-sdk)
 [![Node.js 24 or later](https://img.shields.io/badge/node-%E2%89%A524-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Patreon](https://img.shields.io/badge/Patreon-Le%20Claudeur-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/cw/LeClaudeur)
 
-[**Quick start**](#quick-start) · [**What's inside**](#whats-inside) · [**Rules**](#rules) · [**Checks**](#checks)
+[**Quick start**](#quick-start) · [**What's inside**](#whats-inside) · [**Rules**](#rules) · [**Checks**](#checks) · [**Sponsor**](#sponsor)
 
 </div>
 
@@ -105,6 +106,13 @@ npm run build      # → dist/my-plugin-0.1.0.hodi-plugin
 
 A tag such as `v0.1.0` publishes the `.hodi-plugin` file as a GitHub release. Before it, raise `version` in
 `plugin.json` and `package.json` and move the lines under « Unreleased » in [CHANGELOG.md](CHANGELOG.md) under it.
+
+## Sponsor
+
+Hodi is free and open source, with no ads and nothing to pay.\
+If it is useful to you, you can support its work on Patreon.
+
+[![Support Hodi on Patreon](https://img.shields.io/badge/Support%20Hodi-Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/LeClaudeur)
 
 ## License
 
