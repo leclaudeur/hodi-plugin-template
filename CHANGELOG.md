@@ -20,6 +20,8 @@ Fixed (bugs), Security (what was unsafe).
 
 ### Changed
 
+- Built with `@hodi-app/plugin-sdk` 1.0.0-beta.2.
+
 ### Fixed
 
 ## [0.1.0] - YYYY-MM-DD
