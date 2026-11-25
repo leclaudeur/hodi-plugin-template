@@ -3,7 +3,7 @@ import { after, describe, it } from 'node:test'
 import { testPlugin } from '@hodi-app/plugin-sdk/testing'
 
 // The plugin's server part, built and run as Hodi runs it, around a small Hodi in memory. Write your own tests the
-// same way: a route asked as a person of the household, and what it answers.
+// same way: a route asked as a person on the server, and what it answers.
 describe('my-plugin', async () => {
   const hodi = await testPlugin('.')
   after(() => hodi.stop())
