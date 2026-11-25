@@ -21,7 +21,7 @@ Fixed (bugs), Security (what was unsafe).
 ### Changed
 
 - Built with `@hodi-app/plugin-sdk` 1.0.0-beta.7, which writes its version into the package: Hodi 1.0.0-beta.14 or
-  later runs only plugins built with it or a later one.
+  later runs only plugins built with an SDK it accepts, 1.0.0-beta.7 at least and never newer than its own.
 
 ### Fixed
 
