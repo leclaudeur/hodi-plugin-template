@@ -27,7 +27,7 @@ A Hodi **plugin** adds a feature to Hodi _without touching its code_. This templ
 ## Before you start
 
 - **Node.js 24** or later
-- **A test Hodi** where you are the server's admin. Never the one your household uses.
+- **A test Hodi** where you are the server's admin. Never the one your family uses.
   [Install Hodi](https://github.com/leclaudeur/hodi#install).
 
 ## Quick start
@@ -90,7 +90,7 @@ A package built here is **unsigned**. Installed from its file, Hodi labels it _U
 web part**: no card, no page. In developer mode, everything shows while you work on it.
 
 Only Hodi's official plugins are signed (_Verified_). Outside developer mode, an unsigned plugin can't use `accounts`,
-`households`, `signIn`, `mail` or `notify`, and it never gets the AI.
+`signIn`, `mail` or `notify`, and it never gets the AI.
 
 ## Checks
 
